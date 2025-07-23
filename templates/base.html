@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meez's Realms | Tech & Life</title>
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container header-content">
+        <h1>
+          <a href="/">Meez's Realms</a>
+        </h1>
+        <br />
+        <p>A blog about tech, life, and everything in between</p>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Meez's Realms. All rights reserved.</p>
+        <p class="small-text">Made with 💜 By Meez</p>
+      </div>
+    </footer>
+  </body>
+</html>

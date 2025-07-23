@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+
+<img src="{{ post.image.url }}" alt="{{ post.title }}" />
+<h2>{{ post.title }}</h2>
+<p class="">
+  <span>Published on:</span> {{ post.publish_date }} | <span>By:</span> Admin
+</p>
+<p class="">{{ post.content }}</p>
+
+{% endblock content %}
