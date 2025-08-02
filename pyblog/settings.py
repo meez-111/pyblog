@@ -87,18 +87,16 @@ DATABASES = {
 
 
 # Email settings
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # For development, use console backend to print emails to console
-EMAIL_HOST = "smtp.gmail.com"  # e.g., 'smtp.gmail.com' or your hosting's SMTP
-EMAIL_PORT = 587  # Often 587 for TLS, or 465 for SSL
-EMAIL_USE_TLS = True  # Use True for TLS, False for SSL (and usually port 465)
-EMAIL_HOST_USER = (
-    "meez.sabra@gmail.com"  # The email address that will send the messages
+EMAIL_BACKEND = (
+    "django.core.mail.backends.smtp.EmailBackend"  # Use the SMTP backend in production
 )
-EMAIL_HOST_PASSWORD = "11"  # The password for the sending email
-DEFAULT_FROM_EMAIL = "no-reply@meezsrealms.com"  # Used as the "From" address if not specified in send_mail
-CONTACT_EMAIL = (
-    "meez.sabra.111@gmail.com"  # The email address where you want to receive messages
-)
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")  # Read username from env
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")  # Read password from env
+DEFAULT_FROM_EMAIL = "no-reply@meezsrealms.com"
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL")
 
 
 # Password validation
