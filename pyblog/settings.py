@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-97*!kxsygu1jm*jv#oc3w*3)hd@@#yo@nm1pfu#*szw3g6q5ud"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -74,15 +72,17 @@ WSGI_APPLICATION = "pyblog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
+DEBUG = "RENDER" not in os.environ
+
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "django-insecure-97*!kxsygu1jm*jv#oc3w*3)hd@@#yo@nm1pfu#*szw3g6q5ud"
+)
+
+ALLOWED_HOSTS = [os.environ.get("RENDER_EXTERNAL_HOSTNAME"), "localhost", "127.0.0.1"]
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pyblog_db",
-        "USER": "postgres",
-        "PASSWORD": "1133557799Mm..",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+    "default": dj_database_url.config(default="sqlite:///db.sqlite3", conn_max_age=600)
 }
 
 
