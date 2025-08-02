@@ -8,22 +8,22 @@ from django.contrib.auth.forms import (
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(
+    email = forms.CharField(
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={"placeholder": "Email", "class": "register-email"}
         ),
     )
 
-    first_name = forms.EmailField(
+    first_name = forms.CharField(
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={"placeholder": "First Name", "class": "register-first-name"}
         ),
     )
-    last_name = forms.EmailField(
+    last_name = forms.CharField(
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={"placeholder": "Last Name", "class": "register-last-name"}
         ),
     )
@@ -35,7 +35,7 @@ class UserRegisterForm(UserCreationForm):
     )
 
     password1 = forms.CharField(
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             attrs={
                 "type": "password",
                 "placeholder": "Password",
@@ -45,7 +45,7 @@ class UserRegisterForm(UserCreationForm):
     )
 
     password2 = forms.CharField(
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             attrs={
                 "type": "password",
                 "placeholder": "Confirm Password",
@@ -98,7 +98,7 @@ class UserLoginForm(AuthenticationForm):
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField(
         required=False,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={
                 "placeholder": "Email",
                 "class": "update-email",
