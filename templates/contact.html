@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock title %}
+
+
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+{% endblock custom_css %}
+
+{% block content %} 
+
+<div class="contact-container">
+    <div class="contact-form">
+        <h2>Contact Me</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field}}
+            {% endfor %}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+            <button type="submit" class="form-btn">Send Message</button>
+        </form>
+    </div>
+    <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>If you have any questions, feel free to reach out to me!</p>
+        <ul>
+            <li><span><i class="fas fa-envelope fa-1x"></i></span>Email: <a href="mailto:meez.sabra.111@gmail.com" target="_blank">meez.sabra.111@gmail.com</a></li>
+            <li><span><i class="fab fa-linkedin fa-1x"></i></span>LinkedIn: <a href="https://www.linkedin.com/in/moaz-sabra-3a7565330" target="_blank" >LinkedIn</a></li>
+            <li><span><i class="fab fa-github fa-1x"></i></span></i>GitHub: <a href="https://www.github.com/meez-111" target="_blank">Github</a></li>
+        </ul>
+    </div>
+
+</div>
+
+{% endblock %}

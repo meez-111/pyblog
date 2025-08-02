@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+{% endblock custom_css %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+
+
+<div class="register-container">
+    <div class="register-form">
+        <h2>Register</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field}}
+            {% endfor %}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+            <button type="submit" class="form-btn">Register</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

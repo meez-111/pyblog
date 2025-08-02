@@ -1,0 +1,50 @@
+
+.about-container {
+  padding: 20px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.about-container p{
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    word-wrap: break-word;
+    max-width: 800px;
+}
+
+.about-img {
+  width: 400px;
+  height: 400px;
+    border-radius: 50%;
+    border: none;
+    margin-top: 100px;
+    margin-right: 220px;
+    margin-left: 50px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.7);
+}
+
+.about-quote {
+    display: block;
+  font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+  line-height: 1.6;
+  color: rgb(32, 32, 32);
+  font-family: 'Amiri', serif; /* Assuming you have a suitable Arabic font */
+  direction: rtl;
+  text-align: right;
+  border-right: solid 3px #c6c0c0;
+  border-radius: 2px;
+  padding: 20px 20px 0 0;
+  width: 100%;
+  height: 60px;
+    margin-top: 50px;
+  background-color: rgb(237, 236, 236);
+}
+
+
+.footer {
+  margin-top: 200px;
+}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}about{% endblock title %}
+
+
+{% block custom_css%}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+<div class="about-container">
+  <img
+    class="about-img"
+    src="{% static 'images/about-img.jpg' %}"
+    alt="about-image"
+  />
+  <div class="about-text">
+    <h1 class="about-title">About Me</h1>
+    <p class="about-desc">
+      <p>
+  Welcome to my corner of the internet! I'm Moaz Mahmoud Sabra, a <strong>computer science graduate</strong> with an insatiable curiosity for <strong>all things tech and life</strong>.
+</p>
+<p>
+  My passion ignited young – since I was 14, I've loved to <strong>build things and break them</strong>, especially in the realm of technology. This fascination naturally led me to <strong>cybersecurity</strong>, where I've developed a deep love for <strong>penetration testing and red teaming</strong>. While I'm currently honing my skills in <strong>backend development with Django and Python</strong> – creating robust digital foundations – my compass is set firmly on transitioning into cybersecurity, aiming to explore every domain from <strong>offensive to defensive security</strong>, and from <strong>application to hardware and IoT security</strong>. My ultimate aspiration? To build a mind-blowing startup that pushes boundaries.
+</p>
+<p>
+  Beyond the lines of code and security exploits, my world expands into the rich tapestry of <strong>Arabic poetry and literature</strong>. I find immense joy in reading <strong>heritage and modern Arabic books</strong>, delving into <strong>Islamic history, Quranic, and Hadith studies</strong>. And yes, I also have a soft spot for <strong>horses, art, and everything beautiful</strong> that sparks inspiration. A particular fondness of mine is also <strong>tasting coffee, especially the rich aroma and tradition of Arabic coffee</strong>.
+</p>
+<p>
+  This blog is where these worlds collide. You'll find my insights into the ever-evolving tech landscape, deep dives into cybersecurity, alongside reflections on literature, history, the beauty I encounter in everyday life, and perhaps even a note on a great cup of coffee. Join me as I build, break, learn, and explore!
+</p>
+    </p>
+      <q class="about-quote">إِنَّما نُحاوِلُ مُلكاً أَو نَموتُ فَنُعذَرا.</q>
+  </div>
+</div>
+{% endblock %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "posts",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,21 @@ DATABASES = {
         "PORT": "5432",
     }
 }
+
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # For development, use console backend to print emails to console
+EMAIL_HOST = "smtp.gmail.com"  # e.g., 'smtp.gmail.com' or your hosting's SMTP
+EMAIL_PORT = 587  # Often 587 for TLS, or 465 for SSL
+EMAIL_USE_TLS = True  # Use True for TLS, False for SSL (and usually port 465)
+EMAIL_HOST_USER = (
+    "meez.sabra@gmail.com"  # The email address that will send the messages
+)
+EMAIL_HOST_PASSWORD = "11"  # The password for the sending email
+DEFAULT_FROM_EMAIL = "no-reply@meezsrealms.com"  # Used as the "From" address if not specified in send_mail
+CONTACT_EMAIL = (
+    "meez.sabra.111@gmail.com"  # The email address where you want to receive messages
+)
 
 
 # Password validation
@@ -131,3 +147,14 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Authentication URLs
+LOGIN_REDIRECT_URL = "profile"  # URL name to redirect to after successful login
+LOGOUT_REDIRECT_URL = "login"  # URL name to redirect to after logout
+LOGIN_URL = "login"  # URL name for the login page (used by @login_required decorator)
+
+
+USE_TZ = True
+
+TIME_ZONE = "Asia/Riyadh"

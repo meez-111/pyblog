@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meez's Realms | Tech & Life</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Google Fonts - Inter -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -12,6 +12,7 @@
     />
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    {% block custom_css %} {% endblock %}
   </head>
   <body>
     <!-- Header Section -->
@@ -24,14 +25,26 @@
         <p>A blog about tech, life, and everything in between</p>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="contact">Contact</a></li>
+              <li><a href="/">Home</a></li>
+            {% if not user.is_authenticated %}
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/users/login">Login</a></li>
+              <li><a href="/users/register">Register</a></li>
+            {% else %}
+
+              <li><a href="/userposts">My Posts</a></li>
+              <li><a href="/createpost">Create Post</a></li>
+              <li><a href="/users/profile">Profile</a></li>
+              <li><a href="/users/logout">Logout</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>
     </header>
-    {% block content %} {% endblock %}
+    {% block content %}
+    
+    {% endblock %}
     <!-- Footer Section -->
     <footer class="footer">
       <div class="container">
@@ -39,5 +52,8 @@
         <p class="small-text">Made with 💜 By Meez</p>
       </div>
     </footer>
+
+    
+    <script src="https://kit.fontawesome.com/577c51fa21.js" crossorigin="anonymous"></script> 
   </body>
 </html>

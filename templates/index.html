@@ -1,14 +1,22 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home | Meez's Realms{% endblock title %}
+
+{% block content %}
 <main class="container main-content">
   <section class="blog-grid">
-    {% for post in posts reversed %}
+    {% for post in posts reversed%}
     <article class="blog-post">
       <img src="{{ post.image.url }}" alt="{{ post.title }}" />
       <div class="blog-post-content">
         <h2>{{ post.title }}</h2>
         <p class="blog-post-meta">
           <span>Published on:</span> {{ post.publish_date }} |
-          <span>By:</span> Admin
+          <span>Updated on:</span> {{post.updated}} |
+          <span>By:</span> {{post.author}} |
+          <span>Category:</span> {{post.category}}
         </p>
         <p class="blog-post-excerpt">{{ post.content|truncatewords:15 }}</p>
         <a href="/post/{{post.id}}" class="read-more-button">Read More</a>

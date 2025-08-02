@@ -1,10 +1,42 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+{% endblock custom_css %} {% block content %}
 
-<img src="{{ post.image.url }}" alt="{{ post.title }}" />
-<h2>{{ post.title }}</h2>
-<p class="">
-  <span>Published on:</span> {{ post.publish_date }} | <span>By:</span> Admin
-</p>
-<p class="">{{ post.content }}</p>
+
+<div class="post-container">
+  <img class="post-img" src="{{ post.image.url }}" alt="{{ post.title }}" />
+  <h2 class="post-title">{{ post.title }}</h2>
+  <div class="post-meta">
+    <span>Published on:</span> {{ post.publish_date|date:"d/m/Y h:i a" }} |
+    <span>Updated on:</span> {{post.updated|date:"d/m/Y h:i a"}} |
+    <span>By:</span> {{post.author}} |
+    <span>Category:</span> {{post.category}}
+  {% if post.author == user %}
+    <div class="post-icons">
+      <a href="/edit/{{post.id}}" class="edit-button"><i class="edit-post-icon fa-solid fa-pen-to-square"></i></a>
+      <i id="delete-post-icon" class="delete-post-icon fa-solid fa-trash"></i>
+      <form action="/delete/{{post.id}}" method="post" class="delete-post-form" onsubmit="return confirm('Are you sure you want to delete this post?');">
+            {% csrf_token %}
+            <button type="submit" id="delete-button" class="delete-button" style="display: none;"></button>
+      </form>
+    </div>
+  {% endif %}
+  </div>
+  <p class="post-content">{{ post.content }}</p>
+</div>
+
+
+<script>
+
+const triggerIcon = document.getElementById('delete-post-icon');
+
+const hiddenButton = document.getElementById('delete-button');
+
+triggerIcon.addEventListener('click', function() {
+    hiddenButton.click();
+});
+
+
+</script>
 
 {% endblock content %}

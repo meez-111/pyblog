@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+{% endblock custom_css %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+
+
+<div class="update-container">
+    <div class="profile-info">
+        <h2 class="profile-info-title">Your Profile Information</h2>
+        <p class="profile-info-first"><strong>First Name:</strong> {{ user.first_name|default:"Not set" }}</p>
+        <p class="profile-info-last"><strong>Last Name:</strong> {{ user.last_name|default:"Not set" }}</p>
+        <p class="profile-info-username"><strong>Username:</strong> {{ user.username }}</p>
+        <p class="profile-info-email"><strong>Email:</strong> {{ user.email }}</p>
+        <p class="profile-info-date"><strong>Joined:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+
+        <hr>
+    </div>
+    <div class="update-form">
+        <h2>Update</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for field in user_form %}
+                {{field}}
+            {% endfor %}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+            <button type="submit" class="form-btn">Update Profile</button>
+            <a href="/users/changepassword" class="change-pass-btn">Change Password</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

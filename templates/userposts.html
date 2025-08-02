@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}My Posts{% endblock title %}
+
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'css/userposts.css' %}">
+
+{% endblock custom_css %}
+
+{% block content %}
+<main class="container main-content">
+  <section class="blog-grid">
+    {% for post in user_posts reversed %}
+    <article class="blog-post">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <div class="blog-post-content">
+        <h2>{{ post.title }}</h2>
+        <p class="blog-post-meta">
+          <span>Published on:</span> {{ post.publish_date|date:"d/m/Y h:i a"}} |
+          <span>Updated on:</span> {{post.updated|date:"d/m/Y h:i a"}} |
+          <span>By:</span> {{post.author}} |
+          <span>Category:</span> {{post.category.name}} |
+          <span>status:</span> {{post.status}}
+        </p>
+        <p class="blog-post-excerpt">{{ post.content|truncatewords:15 }}</p>
+        <div class="post-buttons">
+          <a href="/post/{{post.id}}" class="read-more-button">Read More</a>
+          <a href="/edit/{{post.id}}" class="edit-button">Edit Post</a>
+          <form action="/delete/{{post.id}}" method="post" class="delete-post-form" onsubmit="return confirm('Are you sure you want to delete this post?');">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Delete Post</button>
+          </form>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+</main>
+{% endblock content %}

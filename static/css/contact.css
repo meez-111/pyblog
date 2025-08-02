@@ -1,0 +1,161 @@
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: -400px;
+    position: relative;
+}
+
+.contact-form {
+    width: 480px;
+    height: 510px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: -2px 12px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    margin: 20px 0 30px 30px;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 30px;
+    color: black;
+    line-height: 1.5;
+    font-weight: 100;
+}
+
+.form-name,
+.form-email,
+.form-subject {
+    width: 30%;
+    height: 45px;
+    padding: 0 10px;
+    border: 1px solid #e1dede;
+    border-radius: 2px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+.form-email {
+    margin-left: 0;
+}
+
+.form-subject {
+    width: 70%;
+}
+
+.form-message {
+    width: 70%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #e1dede;
+    border-radius: 2px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+
+.form-btn {
+    display: inline-block;
+    background-color: #3b82f6;
+    /* bg-blue-500 */
+    color: white;
+    padding: 15px 15px;
+    margin-left: 30px;
+    /* px-5 py-2 */
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    /* rounded-lg */
+    text-decoration: none;
+    font-weight: 600;
+    /* font-semibold */
+    transition: background-color 0.3s ease-in-out;
+    /* transition duration-300 */
+}
+
+.form-btn:hover {
+    background-color: #2563eb;
+    /* hover:bg-blue-600 */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.contact-info {
+    position: absolute;
+    top: 12%;
+    left: 60%;
+    width: 350px;
+    height: 550px;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #3b82f6;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.contact-info h3 {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 25px;
+    color: white;
+    line-height: 1.5;
+    font-weight: 100;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.5;
+    font-weight: 100;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 30px;
+}
+
+.contact-info ul li {
+    margin-bottom: 40px;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.5;
+}
+
+.contact-info ul li span {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+}
+
+.contact-info ul li span i {
+    margin-left: 14px;
+    margin-top: 14px;
+}
+
+.contact-info ul li a {
+    color: white;
+    text-decoration: none;
+}
