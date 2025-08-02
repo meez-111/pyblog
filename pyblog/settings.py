@@ -73,7 +73,7 @@ WSGI_APPLICATION = "pyblog.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-DEBUG = "RENDER" not in os.environ
+DEBUG = True
 
 SECRET_KEY = os.environ.get(
     "SECRET_KEY", "django-insecure-97*!kxsygu1jm*jv#oc3w*3)hd@@#yo@nm1pfu#*szw3g6q5ud"
