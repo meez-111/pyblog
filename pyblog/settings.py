@@ -79,7 +79,7 @@ SECRET_KEY = os.environ.get(
     "SECRET_KEY", "django-insecure-97*!kxsygu1jm*jv#oc3w*3)hd@@#yo@nm1pfu#*szw3g6q5ud"
 )
 
-ALLOWED_HOSTS = [os.environ.get("pyblog-tooa.onrender.com"), "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [os.environ.get("RENDER_EXTERNAL_HOSTNAME"), "localhost", "127.0.0.1"]
 
 DATABASES = {
     "default": dj_database_url.config(default="sqlite:///db.sqlite3", conn_max_age=600)
